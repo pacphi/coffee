@@ -44,7 +44,7 @@ Now add `requirements.txt`
 pip freeze > requirements.txt
 ```
 
-Add `Procfile` to have `gunicorn` serve requests
+Add `Procfile` to have [gunicorn](https://gunicorn.org/) serve requests
 
 ```bash
 cat << EOF >>Procfile
@@ -52,12 +52,20 @@ web: gunicorn app:app
 EOF
 ```
 
+Add `.gitignore`
+
+```bash
+curl https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore > .gitignore
+echo ".history/" >> .gitignore
+```
+
 
 ## Commit
 
 ```
 git add .
-git commit -m"Add requirements.txt"
+git add .gitignore
+git commit -m"Add .gitignore and requirements.txt"
 git push
 ```
 
