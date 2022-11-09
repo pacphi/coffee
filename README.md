@@ -38,11 +38,20 @@ pip install gunicorn
 > Make a note of the versions
 
 
-Now add `requirements.txt` to Git repository
+Now add `requirements.txt`
 
 ```
 pip freeze > requirements.txt
 ```
+
+Add `Procfile` to have `gunicorn` serve requests
+
+```bash
+cat << EOF >>Procfile
+web: gunicorn app:app
+EOF
+```
+
 
 ## Commit
 
