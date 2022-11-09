@@ -1,12 +1,13 @@
 # coffee
 
-Forked from https://github.com/shawnharris63/coffee
+Sample REST API developed with Python and Flask.
 
-Application developed with Python and Flask.
+Forked from https://github.com/shawnharris63/coffee.
+
 
 ## A note on Python
 
-You may decide to prefix occurrences of `pip` with `pythonX.X -m` where `X.X` represents the explicit version of Python installed on your workstation. 
+You may decide to prefix occurrences of `pip` with `pythonX.X -m pip` where `X.X` represents the explicit version of Python installed on your workstation.
 
 ## Clean pip
 
@@ -19,17 +20,15 @@ pip freeze | xargs pip uninstall -y
 
 ## Build
 
-To fork use
+If you wish to fork the original Git repository easily, use
 
 ```bash
 gh repo fork shawnharris63/coffee
 ```
 
-To prepare `requirements.txt`
+To prepare `requirements.txt` look in .py files for all `from` and `import` statements
 
-Looked in .py files for all `from` and `import` statements
-
-Used
+Install dependencies
 
 ```
 pip install flask
@@ -39,7 +38,7 @@ pip install gunicorn
 > Make a note of the versions
 
 
-Add `requirements.txt` to repo
+Now add `requirements.txt` to Git repository
 
 ```
 pip freeze > requirements.txt
@@ -109,4 +108,3 @@ tanzu apps workload get coffee \
 tanzu apps workload delete coffee \
   --namespace development
 ```
-
