@@ -65,6 +65,7 @@ echo ".history/" >> .gitignore
 ```
 git add .
 git add .gitignore
+git status
 git commit -m"Add .gitignore and requirements.txt"
 git push
 ```
@@ -83,7 +84,7 @@ tanzu apps workload create coffee \
   --git-branch main \
   --type web \
   --namespace development \
-  --label app.kubernetes.io/part-of=crypto-screener \
+  --label app.kubernetes.io/part-of=coffee \
   --annotation autoscaling.knative.dev/minScale=1 \
   --tail
   --yes
@@ -99,7 +100,7 @@ tanzu apps workload create coffee \
   --git-branch main \
   --type web \
   --namespace development \
-  --label app.kubernetes.io/part-of=crypto-screener \
+  --label app.kubernetes.io/part-of=coffee \
   --annotation autoscaling.knative.dev/minScale=1 \
   --tail
   --yes
