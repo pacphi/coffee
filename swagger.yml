@@ -1,61 +1,53 @@
-swagger: "2.0"
+openapi: 3.0.1
 info:
-  description: Starbucks API
-  version: "1.0.0"
   title: Starbucks API Example
-consumes:
-  - "application/json"
-produces:
-  - "application/json"
-
-basePath: "/api"
-
-# Paths supported by the server application
+  description: Starbucks API
+  version: 1.0.0
+servers:
+- url: /api
 paths:
   /coffee:
     get:
-      operationId: "coffee.read"
       tags:
-        - "Coffee"
-      summary: "The coffee data structure for our server application"
-      description: "Read the list of coffee drinks"
+      - Coffee
+      summary: The coffee data structure for our server application
+      description: Read the list of coffee drinks
+      operationId: coffee.read
       responses:
         200:
-          description: "Successful read coffee list operation"
-          schema:
-            type: "array"
-            items:
-              properties:
-                coffee_name:
-                  type: "string"
-                milk:
-                  type: "string"
-                timestamp:
-                  type: "string"
-
-# STUDENT DO Create a get route that accepts a parameter to return one drink
-# SOLUTION
+          description: Successful read coffee list operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    coffee_name:
+                      type: string
+                    milk:
+                      type: string
+                    timestamp:
+                      type: string
   /coffee/{coffee_name}:
     get:
-      operationId: "coffee.read_one"
       tags:
-        - "Coffee"
-      summary: "Read one drink from the coffee object"
-      description: "Read one drink from the coffee object"
+      - Coffee
+      summary: Read one drink from the coffee object
+      description: Read one drink from the coffee object
+      operationId: coffee.read_one
       parameters:
-        - name: coffee_name
-          in: path
-          description: "Name of coffee get from the list"
-          type: "string"
-          required: True
+      - name: coffee_name
+        in: path
+        description: Name of coffee get from the list
+        required: true
+        schema:
+          type: string
       responses:
         200:
           description: Successfully read coffee from coffee list
-          schema:
-            properties:
-              coffee_name:
-                type: "string"
-              milk:
-                type: "string"
-              timestamp:
-                type: "string"
+          content:
+            application/json:
+              schema:
+                type: object
+components: {}
